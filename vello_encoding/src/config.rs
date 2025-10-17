@@ -182,7 +182,7 @@ impl RenderConfig {
                 target_height: height,
                 base_color: base_color.premultiply().to_rgba8().to_u32(),
                 lines_size: buffer_sizes.lines.len(),
-                binning_size: buffer_sizes.bin_data.len() - layout.bin_data_start,
+                binning_size: buffer_sizes.bin_data.len().saturating_sub(layout.bin_data_start),
                 tiles_size: buffer_sizes.tiles.len(),
                 seg_counts_size: buffer_sizes.seg_counts.len(),
                 segments_size: buffer_sizes.segments.len(),
